@@ -14,13 +14,15 @@ function createImageMarkup(galleryItems) {
         return `
     <li class="gallery__item">
     <a class="gallery__item" href="${original}">
-    <img class="gallery__image" src="${preview}" alt="${description}" />
+    <img class="gallery__image" src="${preview}" title="${description}" />
     </a>
     </li>`
 
     }).join('');
-
 };
 
-console.log(gallaryEl);
-
+   let gallery = new SimpleLightbox(".gallery a");
+gallery.on('show.simplelightbox', () => {
+    captionsData: 'title';
+    captionDelay: 250; 
+    });
