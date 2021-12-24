@@ -6,7 +6,7 @@ const createImageMarkupList = createImageMarkup(galleryItems);
 
 gallaryEl.insertAdjacentHTML('afterbegin', createImageMarkupList);
 
-// gallaryEl.addEventListener('click', onLinkClick);
+gallaryEl.addEventListener('click', onLinkClick);
 
 
 function createImageMarkup(galleryItems) {
@@ -27,18 +27,18 @@ function createImageMarkup(galleryItems) {
 
 }
 
-// function onLinkClick(e) {
-//   e.target.firstElementChild.preventDefault();
+function onLinkClick(e) {
+  e.target.firstElementChild.preventDefault();
 
-//   if (!e.target.classList.contains('gallery__item')) {
-//     return
-//   }
+  if (!e.target.classList.contains('gallery__item')) {
+    return
+  }
   
-//   const bigImageLink = e.target.firstElementChild.href
+  const bigImageLink = e.target.querySelector('gallery__image')
 
-//   const intance = basicLightbox.create(`<img src ="${bigImageLink}" width="800" heigth="600">`);
+  const intance = basicLightbox.create(`<img src ="${bigImageLink.dataset.source}" width="800" heigth="600">`);
  
  
-//   bigImageLink.show()
-// };
+  intance.show()
+};
 
